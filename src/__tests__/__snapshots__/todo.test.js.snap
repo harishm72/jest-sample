@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Todo --- Snapshot Rednders the App Component 1`] = `
+<div>
+  <form
+    className="App"
+    onSubmit={[Function]}
+  >
+    <input
+      onChange={[Function]}
+      value=""
+    />
+    <button>
+      Submit
+    </button>
+  </form>
+  <ul />
+</div>
+`;

@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App --- Snapshot Rednders the App Component 1`] = `
+<div>
+  <form
+    className="form-signup"
+    onSubmit={[Function]}
+  >
+    <img
+      alt=""
+      className="mb-4"
+      height="72"
+      src="//getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg"
+      width="72"
+    />
+    <h1
+      className="h3 mb-3 font-weight-normal"
+    >
+      Please sign up
+    </h1>
+    <label
+      className="sr-only"
+      htmlFor="name"
+    >
+      Name
+    </label>
+    <input
+      autoFocus={true}
+      className="form-control"
+      id="name"
+      placeholder="Name"
+      required={true}
+      type="text"
+    />
+    <label
+      className="sr-only"
+      htmlFor="inputEmail"
+    >
+      Email address
+    </label>
+    <input
+      className="form-control"
+      id="inputEmail"
+      placeholder="Email address"
+      required={true}
+      type="email"
+    />
+    <label
+      className="sr-only"
+      htmlFor="inputPassword"
+    >
+      Choose Password
+    </label>
+    <input
+      className="form-control"
+      id="inputPassword"
+      placeholder="Choose a Password"
+      required={true}
+      type="password"
+    />
+    <label
+      className="sr-only"
+      htmlFor="reInputPassword"
+    >
+      Re-confirm Password
+    </label>
+    <input
+      className="form-control"
+      id="reInputPassword"
+      placeholder="Re-confirm Password"
+      required={true}
+      type="password"
+    />
+    <button
+      className="btn btn-lg btn-primary btn-block"
+      type="submit"
+    >
+      Sign Up
+    </button>
+  </form>
+  <hr />
+  <p>
+    <a
+      href="/signin"
+      onClick={[Function]}
+    >
+      Login if already signed up!
+    </a>
+  </p>
+</div>
+`;
