@@ -28,9 +28,12 @@ Array [
       autoFocus={true}
       className="form-control"
       id="inputEmail"
+      name="email"
+      onChange={[Function]}
       placeholder="Email address"
       required={true}
       type="email"
+      value=""
     />
     <label
       className="sr-only"
@@ -41,9 +44,12 @@ Array [
     <input
       className="form-control"
       id="inputPassword"
+      name="password"
+      onChange={[Function]}
       placeholder="Password"
       required={true}
       type="password"
+      value=""
     />
     <div
       className="checkbox mb-3"

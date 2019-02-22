@@ -4,8 +4,14 @@ import {Link} from 'react-router-dom';
 class Signin extends Component {
     constructor(props) {
         super(props);
-        this.email = React.createRef();
-        this.password = React.createRef();
+        this.state = {
+            email : "",
+            password : ""
+        }
+    }
+
+    onChange = (event) => {
+        this.setState({[event.target.name] : event.target.value})
     }
 
     signin(event) {
@@ -20,6 +26,7 @@ class Signin extends Component {
     }
 
     render() {
+        //console.log(this.state)
         return (
             <Fragment>
                 <form className="form-signin" onSubmit={(e) => this.signin(e)}>
@@ -32,20 +39,24 @@ class Signin extends Component {
                     <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
                     <label htmlFor="inputEmail" className="sr-only">Email address</label>
                     <input
+                        name="email"
                         type="email"
                         id="inputEmail"
                         className="form-control"
                         placeholder="Email address"
-                        ref={this.email}
+                        value={this.state.email}
+                        onChange={this.onChange}
                         required
                         autoFocus/>
                     <label htmlFor="inputPassword" className="sr-only">Password</label>
                     <input
+                        name='password'
                         type="password"
                         id="inputPassword"
                         className="form-control"
                         placeholder="Password"
-                        ref={this.password}
+                        value={this.state.password}
+                        onChange={this.onChange}
                         required/>
                     <div className="checkbox mb-3">
                         <label>

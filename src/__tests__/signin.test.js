@@ -49,12 +49,11 @@ describe("Signin shallow render", () => {
     expect(wrapper.find('#inputEmail').length).toBe(1);
     expect(emailInput.text()).toBe('')
 
-    emailInput.simulate("change", { target: { value: "hello" } })
-    emailInput.instance().text = "foo";
-    //expect(wrapper.find('#inputEmail').text()).toBe("hello");
-    expect(emailInput.props.value).toEqual("foo");
-   // expect(wrapper.ref('email').innerText).to.equal('hello');
-    //expect(wrapper.find('form').childAt(3).props()).toEqual("hello");
+    emailInput.simulate("change", { target: { name : "email", value: "hello" } })
+    expect(wrapper.find('form').childAt(3).props().value).toBe("hello")
+
+    emailInput.simulate("change", { target: {  name : "email", value: "abc@email.com" } })
+    expect(wrapper.find('form').childAt(3).props().value).toBe("abc@email.com")
   });
 
   it('<form> element should have an <label> for password', () => {
@@ -70,6 +69,13 @@ describe("Signin shallow render", () => {
     expect(passwordInput.type()).toBe('input');
     expect(wrapper.find('#inputPassword').length).toBe(1);
     expect(passwordInput.text()).toBe('')
+
+    passwordInput.simulate("change", { target: { name : "password", value: "secret" } })
+    expect(wrapper.find('form').childAt(5).props().value).toBe("secret")
+
+    passwordInput.simulate("change", { target: { name : "password", value: "mypassword" } })
+    expect(wrapper.find('form').childAt(5).props().value).toBe("mypassword")
+
   });
 
   it('<form> element should have a remember me checkbox', () => {
@@ -82,18 +88,29 @@ describe("Signin shallow render", () => {
 
     expect(checkbox.type()).toBe('input')
 
-    // this get(0) gets us an object
     expect(checkbox.get(0).props.type).toBe('checkbox')
-    //checkbox = wrapper.find({ type: 'checkbox' });
-    //expect(checkbox.props.checked).toEqual(false);
   })
 
   it('submit email and password and click submit', () => {
+    let submitButton = wrapper.find('form').childAt(7)
     const fakeEvent = { preventDefault: () => null };
-    expect(wrapper.find('.comment-input').length).toBe(1);
+
+    expect(submitButton.type()).toBe('button')
+
+    expect(submitButton.text()).toBe("Sign in")
     
-    wrapper.find('form').at(0).simulate('submit', fakeEvent);
-    expect(wrapper.find('').text()).toBe("");
+    expect(submitButton.props().type).toBe("submit")
+    
+    // console.log(submitButton.props())
+    // console.log(wrapper.find('form').childAt(7).type())
+    wrapper.find('form').childAt(3).simulate("change", { target: { name : "email", value: "hello@mail.com" } })
+    expect(wrapper.find('form').childAt(3).props().value).toBe("hello@mail.com")
+
+    wrapper.find('form').childAt(5).simulate("change", { target: { name : "password", value: "mypassword" } })
+    expect(wrapper.find('form').childAt(5).props().value).toBe("mypassword")
+
+    submitButton.simulate('submit', fakeEvent);
+    expect(submitButton).toBe("");
 });
 });
 
